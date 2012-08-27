@@ -15,3 +15,8 @@ Copy the contents of this directory into a "geocoder" directory in either addons
 ## Usage
 
 After being assigned to a stream, you can specify any geographic location in the field and a map will appear showing the location. The geographic location is then saved as latitude and longitude coordinates. e.g.: "xx.xxxxx,-xx.xxxxx"
+
+This field type will return latitude and longitude variables for use in your templates:
+
+	{{ field_slug:latitude }}
+	{{ field_slug:longitude }}
