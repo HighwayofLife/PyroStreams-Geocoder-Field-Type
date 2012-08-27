@@ -46,16 +46,15 @@ class Field_geocoder
 		$js = <<<EOF
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
-var geocoder, map;
+var geocoder, map, marker;
+
 function initialize() {
 	geocoder = new google.maps.Geocoder();
-
 	var mapOptions = {
 		zoom: 1,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('{$data['form_slug']}_map'), mapOptions);
-
 	if ($value) {
 		mapLocation();
 	}
@@ -63,14 +62,20 @@ function initialize() {
 
 function mapLocation() {
 	var address = $('#{$data['form_slug']}_input').val();
+	if (!address) {
+		return;
+	}
 	geocoder.geocode({ 'address': address }, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
+			if (marker) {
+				marker.setMap(null);
+			}
 			loc = results[0].geometry.location;
 			$('#{$data['form_slug']}').val(loc.toUrlValue());
 			$('#{$data['form_slug']}_error').text('');
 			map.setCenter(loc);
 			map.setZoom(9);
-			var marker = new google.maps.Marker({
+			marker = new google.maps.Marker({
 				map: map,
 				title: address,
 				position: loc
@@ -83,8 +88,6 @@ function mapLocation() {
 
 $(document).ready(function() {
 	initialize();
-
-	# Don't flood the Google server with requests
 	$('#{$data['form_slug']}_input')
 		.data('timeout', null)
 		.keyup(function() {
@@ -94,8 +97,8 @@ $(document).ready(function() {
 });
 
 </script>
-<div id="{$data['form_slug']}_map" style="width: 450px; height: 250px;"></div>
-<div id="{$data['form_slug']}_error"></div>
+<div id="{$data['form_slug']}_map" class="stream_map" style="width: 450px; height: 250px;"></div>
+<div id="{$data['form_slug']}_error" class="stream_map_error"></div>
 EOF;
 		$options_input = array(
 			'id'    => $data['form_slug'].'_input',
