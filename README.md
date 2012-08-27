@@ -4,7 +4,7 @@ This field type allows you to specify a geographic location which will be conver
 
 ## Changelog
 
-_1.0.0 - August 26, 2012_
+_1.0.0 - August 27, 2012_
 
 * Initial release
 
