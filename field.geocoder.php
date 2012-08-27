@@ -50,8 +50,10 @@ var geocoder, map, marker;
 
 function initialize() {
 	geocoder = new google.maps.Geocoder();
+	var latlng = new google.maps.LatLng(46.40040890, -117.00118890);
 	var mapOptions = {
-		zoom: 1,
+		zoom: 5,
+		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('{$data['form_slug']}_map'), mapOptions);
@@ -92,12 +94,12 @@ $(document).ready(function() {
 		.data('timeout', null)
 		.keyup(function() {
 			clearTimeout($(this).data('timeout'));
-			$(this).data('timeout', setTimeout(mapLocation, 800));
+			$(this).data('timeout', setTimeout(mapLocation, 600));
 		});
 });
 
 </script>
-<div id="{$data['form_slug']}_map" class="stream_map" style="width: 450px; height: 250px;"></div>
+<div id="{$data['form_slug']}_map" class="stream_map" style="width: 450px; height: 300px;"></div>
 <div id="{$data['form_slug']}_error" class="stream_map_error"></div>
 EOF;
 		$options_input = array(
