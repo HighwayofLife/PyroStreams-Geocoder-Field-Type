@@ -109,4 +109,28 @@ EOF;
 		);
 		return form_input($options).form_input($options_input).$js;
 	}
+
+	// --------------------------------------------------------------------------
+
+	/**
+	 * Tag output variables
+	 *
+	 * Outputs 'latitude' & 'longitude' variables
+	 *
+	 * @access 	public
+	 * @param	string
+	 * @param	array
+	 * @return	array
+	 */
+	public function pre_output_plugin($input)
+	{
+		if ( ! $input) return null;
+	
+		$pieces = explode(',', $input);
+
+		if (count($pieces) != 2) return null;
+
+		return array('latitude' => trim($pieces[0]), 'longitude' => $pieces[1]);
+	}
+
 }
