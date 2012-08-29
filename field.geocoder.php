@@ -43,10 +43,9 @@ class Field_geocoder
 
 		$value = ($data['value']) ? 1 : 0;
 
-		$html = <<<EOF
-<div id="{$data['form_slug']}_map" class="stream_map"></div>
-<div id="{$data['form_slug']}_msg" class="stream_map_msg"></div>
-EOF;
+    $html = '<span id="'.$data['form_slug'].'_msg" class="stream_map_msg"></span>';
+    $html .= '<div id="'.$data['form_slug'].'_map" class="stream_map"></div>';
+
 		$options_input = array(
 			'id'    => $data['form_slug'].'_input',
 			'value' => $data['value'],
@@ -94,8 +93,7 @@ EOF;
     $this->CI->type->add_css('geocoder', 'geocoder.css');
     $this->CI->type->add_misc('<script type="text/javascript">
       $(document).ready(function() {
-        initialize();
-        pyro.field_geocoder_input("'.$field->field_slug.'");
+        initialize("'.$field->field.'");
       });</script>');
   }
 }
