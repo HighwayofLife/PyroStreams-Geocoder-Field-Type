@@ -1,0 +1,14 @@
+.stream_map {
+  width: 450px;
+  height: 300px;
+}
+
+.stream_map_msg {
+  padding: 5px;
+  color: #006800;
+}
+
+.msg_error {
+  color: #ec0000;
+  font-weight: bold;
+}
