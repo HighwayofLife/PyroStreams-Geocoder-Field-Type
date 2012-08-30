@@ -41,10 +41,8 @@ class Field_geocoder
 
 		$l_failed = $this->CI->lang->line('streams.geocoder.geocoder_error');
 
-		$value = ($data['value']) ? 1 : 0;
-
-    $html = '<span id="'.$data['form_slug'].'_msg" class="stream_map_msg"></span>';
-    $html .= '<div id="'.$data['form_slug'].'_map" class="stream_map"></div>';
+		$html = '<span id="'.$data['form_slug'].'_msg" class="stream_map_msg"></span>';
+		$html .= '<div id="'.$data['form_slug'].'_map" class="stream_map"></div>';
 
 		$options_input = array(
 			'id'    => $data['form_slug'].'_input',
@@ -69,7 +67,7 @@ class Field_geocoder
 	public function pre_output_plugin($input)
 	{
 		if ( ! $input) return null;
-	
+
 		$pieces = explode(',', $input);
 
 		if (count($pieces) != 2) return null;
@@ -93,7 +91,7 @@ class Field_geocoder
     $this->CI->type->add_css('geocoder', 'geocoder.css');
     $this->CI->type->add_misc('<script type="text/javascript">
       $(document).ready(function() {
-        initialize("'.$field->field.'");
+        initialize("'.$field->field_slug.'");
       });</script>');
   }
 }

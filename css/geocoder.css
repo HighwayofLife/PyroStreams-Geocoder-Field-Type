@@ -5,8 +5,10 @@
 
 .stream_map_msg {
   padding: 5px;
+  color: #006800;
 }
 
 .msg_error {
-  color: #460000;
+  color: #ec0000;
+  font-weight: bold;
 }

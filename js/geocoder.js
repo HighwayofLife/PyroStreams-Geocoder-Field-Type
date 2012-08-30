@@ -10,6 +10,16 @@ function initialize(form_slug) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById(field_slug+'_map'), mapOptions);
+
+  var input = $('#'+field_slug+'_input');
+
+  input.data('timeout', null)
+    .keyup(function() {
+      clearTimeout($(this).data('timeout'));
+      $(this).data('timeout', setTimeout(mapLocation, 600));
+  });
+
+  mapLocation();
 }
 
 function mapLocation() {
@@ -47,14 +57,4 @@ function updateMarkerPosition(loc) {
   $('#'+field_slug).val(loc.toUrlValue());
   $('#'+field_slug+'_msg').removeClass('msg_error').text('Updated location: '+loc.toUrlValue());
 }
-
-$(document).ready(function() {
-  initialize();
-  $('#{$data['form_slug']}_input')
-    .data('timeout', null)
-    .keyup(function() {
-      clearTimeout($(this).data('timeout'));
-      $(this).data('timeout', setTimeout(mapLocation, 600));
-  });
-});
 

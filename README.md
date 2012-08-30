@@ -8,9 +8,9 @@ For front-end usage examples, see [Front End Usage](https://github.com/Highwayof
 _1.0.1-dev_
 
 * Add support for field slugs: latitude and longitude (Adam Fairholm)
-* Create CSS and JS files to clean up geocoder
+* Create CSS and JS files for geocoder
 * Add the ability to drag the marker
-* Message feedback on location setting
+* Message feedback on success and errors
 
 _1.0.0 - August 27, 2012_
 
