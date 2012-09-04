@@ -1,4 +1,4 @@
-# PyroStreams Geocoder Field Type v1.0.1-dev
+# PyroStreams Geocoder Field Type v1.0.1
 
 This field type allows you to specify a geographic location which will be converted to latitude and longitude coordinates, these coordinates can then be used in the any Map API.
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map. This Geocoding Field Type provides a direct way to access a geocoder via an HTTP request. When this field type is added to a stream, you can specify an address, location or coordinates into the text field and this information will be returned and saved as longitude/latitude coordinates in real time.
@@ -8,7 +8,7 @@ For front-end usage examples, see [Front End Usage](https://github.com/Highwayof
 
 ## Changelog
 
-_1.0.1-dev_
+_1.0.1 - September 4, 2012_
 
 * Add support for field slugs: latitude and longitude (Adam Fairholm)
 * Create CSS and JS files for geocoder
