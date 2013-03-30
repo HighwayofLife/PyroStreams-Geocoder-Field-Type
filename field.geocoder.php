@@ -84,14 +84,19 @@ class Field_geocoder
    * @param $field object
    * @return void
    */
-	public function event($field)
+   public function event($field)
 	{
 	  $this->CI->type->add_misc('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>');
-    $this->CI->type->add_js('geocoder', 'geocoder.js');
-    $this->CI->type->add_css('geocoder', 'geocoder.css');
-    $this->CI->type->add_misc('<script type="text/javascript">
+	  $this->CI->type->add_js('geocoder', 'geocoder.js');
+	  $this->CI->type->add_css('geocoder', 'geocoder.css');
+	  $this->CI->type->add_misc('<script type="text/javascript">
       $(document).ready(function() {
         initialize("'.$field->field_slug.'");
+        $(".tabs").bind("tabsshow", function(event, ui) {
+            google.maps.event.trigger(map, "resize");
+            mapLocation();
+       });
+
       });</script>');
-  }
+     }
 }
