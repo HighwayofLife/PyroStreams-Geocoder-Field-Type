@@ -48,13 +48,13 @@ function mapLocation() {
         updateMarkerPosition(marker.getPosition());
       });
     } else {
-      $('#'+field_slug+'_msg').addClass('msg_error').text('Obtaining location failed: '+status);
+      $('#'+field_slug+'_msg').addClass('msg_error').html('<span class="icon-remove"></span> '+status);
     }
   });
 }
 
 function updateMarkerPosition(loc) {
   $('#'+field_slug).val(loc.toUrlValue());
-  $('#'+field_slug+'_msg').removeClass('msg_error').text('Updated location: '+loc.toUrlValue());
+  $('#'+field_slug+'_msg').removeClass('msg_error').html('<span class="icon-ok"></span> '+loc.toUrlValue());
 }
 
