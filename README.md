@@ -4,7 +4,35 @@ This field type allows you to specify a geographic location which will be conver
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map. This Geocoding Field Type provides a direct way to access a geocoder via an HTTP request. When this field type is added to a stream, you can specify an address, location or coordinates into the text field and this information will be returned and saved as longitude/latitude coordinates in real time.
 
 Audience: This field type is intended for people who want to use geocoding data within maps provided by one of the Google Maps APIs.
-For front-end usage examples, see [Front End Usage](https://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/wiki/Front-End-Usage).
+For front-end usage examples, see [Front End Usage](http://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/wiki/Front-End-Usage).
+
+## Installation
+
+ * [Download the latest release](http://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/tags).
+ * or clone the repo: `git clone git://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type.git`
+ * Copy the contents of this directory to either `addons/<site-ref>/field_types/` or `addons/shared_addons/field_types/`
+
+## Usage
+
+After being assigned to a stream, you can specify any geographic location in the field and a map will appear showing the location. The geographic location is then saved as latitude and longitude coordinates.
+
+This field type will return latitude and longitude variables for use in your templates:
+
+	{{ field_slug:latitude }}
+	{{ field_slug:longitude }}
+
+## Documentation
+
+ * [Documentation](http://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/wiki)
+
+## Bugs & Feature Requests
+
+ * [Issue tracker](http://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/issues)
+
+## Contributing
+
+ * [Fork us on github!](http://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type)
+ * Send us a pull request
 
 ## Changelog
 
@@ -27,23 +55,10 @@ _1.0.0 - August 27, 2012_
 
 * Initial release
 
-## Installation
-
-Copy the contents of this directory into a "geocoder" directory in either `addons/<site-ref>/field_types/` or `addons/shared_addons/field_types/`
-
-## Usage
-
-After being assigned to a stream, you can specify any geographic location in the field and a map will appear showing the location. The geographic location is then saved as latitude and longitude coordinates.
-
-This field type will return latitude and longitude variables for use in your templates:
-
-	{{ field_slug:latitude }}
-	{{ field_slug:longitude }}
-
 ## Contributors
 
- * [David Lewis](https://github.com/HighwayofLife) (Author)
- * [Adam Fairholm](https://github.com/adamfairholm)
- * [Peter Varga](https://github.com/peet86)
- * [kerastraight](https://github.com/kerastraight)
+ * [David Lewis](http://github.com/HighwayofLife) (Author)
+ * [Adam Fairholm](http://github.com/adamfairholm)
+ * [Peter Varga](http://github.com/peet86)
+ * [kerastraight](http://github.com/kerastraight)
 
