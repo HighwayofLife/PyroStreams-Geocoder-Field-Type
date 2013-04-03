@@ -36,3 +36,4 @@ This field type will return latitude and longitude variables for use in your tem
 
  * David Lewis (Author)
  * Adam Fairholm
+ * Peter Varga
