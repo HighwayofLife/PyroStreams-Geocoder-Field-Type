@@ -36,8 +36,6 @@ class Field_geocoder {
 			'type'  => 'hidden',
 		);
 
-		$l_failed = $this->CI->lang->line('streams.geocoder.geocoder_error');
-
 		$html = '<span id="'.$data['form_slug'].'_msg" class="stream_map_msg"></span>';
 		$html .= '<div id="'.$data['form_slug'].'_map" class="stream_map"></div>';
 
@@ -82,17 +80,17 @@ class Field_geocoder {
    * @return void
    */
    public function event($field) {
-	  $this->CI->type->add_misc('<script src="//maps.google.com/maps/api/js?sensor=false"></script>');
-	  $this->CI->type->add_js('geocoder', 'geocoder.js');
-	  $this->CI->type->add_css('geocoder', 'geocoder.css');
-	  $this->CI->type->add_misc('<script type="text/javascript">
-      $(document).ready(function() {
-        initialize("'.$field->field_slug.'");
-        $(".tabs").bind("tabsshow", function(event, ui) {
-            google.maps.event.trigger(map, "resize");
-            mapLocation();
-       });
-
-      });</script>');
-     }
+        $this->CI->type->add_misc('<script src="//maps.google.com/maps/api/js?sensor=false"></script>');
+        $this->CI->type->add_js('geocoder', 'geocoder.js');
+        $this->CI->type->add_css('geocoder', 'geocoder.css');
+        $this->CI->type->add_misc('<script type="text/javascript">
+$(document).ready(function() {
+    initialize("'.$field->field_slug.'");
+    $(".tabs").bind("tabsshow", function(event, ui) {
+        google.maps.event.trigger(map, "resize");
+        mapLocation();
+    });
+});
+</script>');
+        }
 }
