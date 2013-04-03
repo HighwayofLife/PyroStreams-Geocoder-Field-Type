@@ -29,7 +29,7 @@ _1.0.0 - August 27, 2012_
 
 ## Installation
 
-Copy the contents of this directory into a "geocoder" directory in either `addons/<site-ref>/field\_types/` or `addons/shared\_addons/field\_types/`
+Copy the contents of this directory into a "geocoder" directory in either `addons/<site-ref>/field_types/` or `addons/shared_addons/field_types/`
 
 ## Usage
 
