@@ -9,9 +9,7 @@
  * @author		David Lewis
  * @copyright	Copyright (c) 2012, David Lewis
  */
-
-class Field_geocoder
-{
+class Field_geocoder {
 
 	public $field_type_slug			= 'geocoder';
 
@@ -30,8 +28,7 @@ class Field_geocoder
 	 * @param $data	array
 	 * @return	string
 	 */
-	public function form_output($data)
-	{
+	public function form_output($data) {
 		$options = array(
 			'name'  => $data['form_slug'],
 			'id'    => $data['form_slug'],
@@ -49,6 +46,7 @@ class Field_geocoder
 			'value' => $data['value'],
 			'type'  => 'text',
 		);
+
 		return form_input($options).form_input($options_input).$html;
 	}
 
@@ -64,8 +62,7 @@ class Field_geocoder
 	 * @param	array
 	 * @return	array
 	 */
-	public function pre_output_plugin($input)
-	{
+	public function pre_output_plugin($input) {
 		if ( ! $input) return null;
 
 		$pieces = explode(',', $input);
@@ -84,9 +81,8 @@ class Field_geocoder
    * @param $field object
    * @return void
    */
-   public function event($field)
-	{
-	  $this->CI->type->add_misc('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>');
+   public function event($field) {
+	  $this->CI->type->add_misc('<script src="//maps.google.com/maps/api/js?sensor=false"></script>');
 	  $this->CI->type->add_js('geocoder', 'geocoder.js');
 	  $this->CI->type->add_css('geocoder', 'geocoder.css');
 	  $this->CI->type->add_misc('<script type="text/javascript">

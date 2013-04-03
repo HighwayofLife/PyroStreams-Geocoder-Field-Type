@@ -1,4 +1,4 @@
-# PyroStreams Geocoder Field Type v1.0.1
+# PyroStreams Geocoder Field Type v1.1.0-dev
 
 This field type allows you to specify a geographic location which will be converted to latitude and longitude coordinates, these coordinates can then be used in the any Map API.
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map. This Geocoding Field Type provides a direct way to access a geocoder via an HTTP request. When this field type is added to a stream, you can specify an address, location or coordinates into the text field and this information will be returned and saved as longitude/latitude coordinates in real time.
@@ -7,6 +7,14 @@ Audience: This field type is intended for people who want to use geocoding data 
 For front-end usage examples, see [Front End Usage](https://github.com/HighwayofLife/PyroStreams-Geocoder-Field-Type/wiki/Front-End-Usage).
 
 ## Changelog
+
+_1.1.0-dev - In progress..._
+
+* [Improvement] Support PyroCMS v2.2 (kerastraight)
+* [Improvement] Hungarian Language (Peter Varga)
+* [Improvement] SSL (HTTPS) Support for the Google Maps API JS
+* [Improvement] Hard-coded language replaced by OK / Error icons (Peter Varga)
+* [Fix] Tab loading properly refreshes the Google map (Peter Varga)
 
 _1.0.1 - September 4, 2012_
 
@@ -21,7 +29,7 @@ _1.0.0 - August 27, 2012_
 
 ## Installation
 
-Copy the contents of this directory into a "geocoder" directory in either addons/<site-ref>/field\_types/ or addons/shared\_addons/field\_types/
+Copy the contents of this directory into a "geocoder" directory in either `addons/<site-ref>/field\_types/` or `addons/shared\_addons/field\_types/`
 
 ## Usage
 
@@ -34,6 +42,8 @@ This field type will return latitude and longitude variables for use in your tem
 
 ## Contributors
 
- * David Lewis (Author)
- * Adam Fairholm
- * Peter Varga
+ * [David Lewis](https://github.com/HighwayofLife) (Author)
+ * [Adam Fairholm](https://github.com/adamfairholm)
+ * [Peter Varga](https://github.com/peet86)
+ * [kerastraight](https://github.com/kerastraight)
+
