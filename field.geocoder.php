@@ -29,6 +29,7 @@ class Field_geocoder {
 	 * @return	string
 	 */
 	public function form_output($data) {
+	  $value = json_decode($data['value']);
 		$options = array(
 			'name'  => $data['form_slug'],
 			'id'    => $data['form_slug'],
@@ -41,7 +42,8 @@ class Field_geocoder {
 
 		$options_input = array(
 			'id'    => $data['form_slug'].'_input',
-			'value' => $data['value'],
+      # Check if addres exists to maintain backward compatibility
+			'value' => (!empty($value->address)) ? $value->address : $data['value'],
 			'type'  => 'text',
 		);
 
@@ -63,11 +65,31 @@ class Field_geocoder {
 	public function pre_output_plugin($input) {
 		if ( ! $input) return null;
 
-		$pieces = explode(',', $input);
+		$location = json_decode($input);
 
-		if (count($pieces) != 2) return null;
+    # Maintain backward compatability
+		if (!is_object($location)) {
+      $pieces = explode(',', $input);
+      if (count($pieces) != 2) return null;
 
-		return array('latitude' => trim($pieces[0]), 'longitude' => $pieces[1]);
+      $array = array(
+        'lat'     => $pieces[0],
+        'lng'     => $pieces[1],
+        'address' => null,
+      );
+
+      $location = (object) $array;
+    }
+
+		$data = array(
+		    'latitude'  => $location->lat,
+		    'longitude' => $location->lng,
+		    'lat'       => $location->lat,
+		    'lng'       => $location->lng,
+		    'address'   => $location->address,
+		);
+
+		return $data;
 	}
 
   /**

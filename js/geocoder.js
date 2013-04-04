@@ -29,32 +29,39 @@ function mapLocation() {
   }
 
   geocoder.geocode({ 'address': address }, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      if (marker) {
-        marker.setMap(null);
-      }
-
-      loc = results[0].geometry.location;
-      updateMarkerPosition(loc);
-      map.setCenter(loc);
-      map.setZoom(9);
-      marker = new google.maps.Marker({
-        map: map,
-        draggable: true,
-        position: loc
-      });
-
-      google.maps.event.addListener(marker, 'dragend', function() {
-        updateMarkerPosition(marker.getPosition());
-      });
-    } else {
+    if (status != google.maps.GeocoderStatus.OK) {
       $('#'+field_slug+'_msg').addClass('msg_error').html('<span class="icon-remove"></span> '+status);
+      return;
     }
+
+    if (marker) {
+      marker.setMap(null);
+    }
+
+    var loc = results[0].geometry.location;
+    var address = results[0].formatted_address;
+    updateMarkerPosition(loc, address);
+    map.setCenter(loc);
+    map.setZoom(9);
+    marker = new google.maps.Marker({
+      map: map,
+      draggable: true,
+      position: loc
+    });
+
+    google.maps.event.addListener(marker, 'dragend', function() {
+      updateMarkerPosition(marker.getPosition());
+    });
   });
 }
 
-function updateMarkerPosition(loc) {
-  $('#'+field_slug).val(loc.toUrlValue());
+function updateMarkerPosition(loc, address) {
+  var obj = {
+    'lat': loc.jb,
+    'lng': loc.kb,
+    'address': address
+  }
+  $('#'+field_slug).val(JSON.stringify(obj));
   $('#'+field_slug+'_msg').removeClass('msg_error').html('<span class="icon-ok"></span> '+loc.toUrlValue());
 }
 
