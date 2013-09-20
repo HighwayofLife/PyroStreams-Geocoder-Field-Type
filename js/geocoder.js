@@ -57,8 +57,8 @@ function mapLocation() {
 
 function updateMarkerPosition(loc, address) {
   var obj = {
-    'lat': loc.jb,
-    'lng': loc.kb,
+    'lat': loc.ob,
+    'lng': loc.pb,
     'address': address
   }
   $('#'+field_slug).val(JSON.stringify(obj));
