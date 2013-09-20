@@ -69,7 +69,7 @@ _This field type has no parameters_
 ## Changelog
 
 _1.2.1 - September 20, 2013_
-* [Fix] Coordinates would not display latitude and longitude. Issue #7 (Thanks to Brian Humes)
+* [Fix] Coordinates would not display latitude and longitude. Issue #7 (Giles Smith)
 
 _1.2.0 - April 4, 2013_
 
@@ -101,4 +101,5 @@ _1.0.0 - August 27, 2012_
  * [Adam Fairholm](http://github.com/adamfairholm)
  * [Peter Varga](http://github.com/peet86)
  * [kerastraight](http://github.com/kerastraight)
+ * [Giles Smith](https://github.com/iknowfoobar)
 
