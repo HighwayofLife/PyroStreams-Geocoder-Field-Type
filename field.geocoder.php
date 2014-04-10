@@ -42,6 +42,8 @@ class Field_geocoder {
 
 		$options_input = array(
 			'id'    => $data['form_slug'].'_input',
+			// jhubb81 added name attribute to generated address_input to allow for proper javascript validation
+			'name'	=> $data['form_slug'].'_input',
       # Check if addres exists to maintain backward compatibility
 			'value' => (!empty($value->address)) ? $value->address : $data['value'],
 			'type'  => 'text',
